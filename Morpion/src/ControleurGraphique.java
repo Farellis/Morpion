@@ -64,7 +64,6 @@ public class ControleurGraphique implements ActionListener {
 				affichageGraphique.afficherResultat(0);
 			} else if (res > 0) {
 				application.points[res - 1] = application.points[res - 1] + 1;
-				affichageGraphique.mettreAJourScore();
 				affichageGraphique.afficherCombinaisonGagnante();
 				affichageGraphique.afficherResultat(res);
 

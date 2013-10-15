@@ -69,7 +69,6 @@ public class AffichageGraphique extends JFrame {
 		MutableAttributeSet center = new SimpleAttributeSet();
 		StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
 		doc.setParagraphAttributes(0, 0, center, true);
-		mettreAJourScore();
 
 		BorderLayout layout = new BorderLayout();
 		this.setLayout(layout);
@@ -82,11 +81,14 @@ public class AffichageGraphique extends JFrame {
 	}
 
 	public void afficherResultat(int res) {
+		int[] points = c.application.getPoints();
 		rejouerjeu.setEnabled(true);
 		if(res == 0) {
-			score.setText("Match nul !");
+			score.setText("Match nul !" + " [" + String.valueOf(points[0]) + "] - ["
+					+ String.valueOf(points[1]) + "]");
 		} else {
-			score.setText("Joueur " + res + " gagne la partie !");
+			score.setText("Joueur " + res + " gagne la partie !" + " [" + String.valueOf(points[0]) + "] - ["
+					+ String.valueOf(points[1]) + "]");
 		}
 		menu.setEnabled(true);
 	}
@@ -119,12 +121,6 @@ public class AffichageGraphique extends JFrame {
 		this.setResizable(false);
 		this.setSize(600, 330);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	
-	public void mettreAJourScore() {
-		int[] points = c.application.getPoints();
-		score.setText("Joueur 1 [" + String.valueOf(points[0]) + "] - ["
-				+ String.valueOf(points[1]) + "] Joueur 2");
 	}
 	
 	public void mettreAJourJoueurEnCours() {
@@ -188,7 +184,6 @@ public class AffichageGraphique extends JFrame {
 	}
 
 	public void reinitialiser() {
-		this.mettreAJourScore();
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				plateauJeu.cases[i][j].setEnabled(true);
