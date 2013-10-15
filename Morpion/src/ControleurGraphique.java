@@ -21,6 +21,7 @@ public class ControleurGraphique implements ActionListener {
 
 	public void demarrerPartie() {
 		application.tirerJoueur();
+		affichageGraphique.afficherJoueurDebut();
 		if (application.getIA().isActivate() && application.getJoueur() == 2) {
 			IA_jouerCoup();
 		}
@@ -55,11 +56,10 @@ public class ControleurGraphique implements ActionListener {
 
 			affichageGraphique.mettreAJourVue();
 
-			if (application.joueurCourant == 1) {
-				application.joueurCourant = 2;
-			} else {
-				application.joueurCourant = 1;
-			}
+			application.joueurCourant = (application.joueurCourant == 1) ? 2 : 1;
+
+			affichageGraphique.mettreAJourJoueurEnCours();
+
 			if (res == 0) {
 				affichageGraphique.afficherResultat(0);
 			} else if (res > 0) {

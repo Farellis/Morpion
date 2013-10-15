@@ -90,6 +90,10 @@ public class AffichageGraphique extends JFrame {
 		}
 		menu.setEnabled(true);
 	}
+	
+	public void afficherJoueurDebut() {
+		score.setText("Joueur "+ c.application.getJoueur() + " commence la partie !");
+	}
 
 	public void afficherMenu() {
 		this.remove(plateauJeu);
@@ -122,6 +126,11 @@ public class AffichageGraphique extends JFrame {
 		score.setText("Joueur 1 [" + String.valueOf(points[0]) + "] - ["
 				+ String.valueOf(points[1]) + "] Joueur 2");
 	}
+	
+	public void mettreAJourJoueurEnCours() {
+		score.setText("Au tour du joueur "+ c.application.getJoueur() + " !");
+	}
+
 
 	public void mettreAJourVue() {
 		// TODO Auto-generated method stub
