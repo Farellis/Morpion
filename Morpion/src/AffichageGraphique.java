@@ -29,7 +29,7 @@ public class AffichageGraphique extends JFrame {
 		c = new ControleurGraphique(jeu, this);
 		plateauJeu = new MonComposant(c);
 
-		/* Création des Rejouer */
+		/* Création des Jouer */
 		jouer = new JPanel();
 		GridLayout gridJouer = new GridLayout(1, 2);
 		jouer.setLayout(gridJouer);
